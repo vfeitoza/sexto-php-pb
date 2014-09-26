@@ -1,0 +1,276 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Criando aplicações desktop com GTK</title>
+        <meta name="description" content="Abordagem do PHP e GTK no desenvolvimento de aplicações desktop.">
+        <meta name="author" content="Victor Feitoza">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="reveal/css/reveal.min.css">
+        <link rel="stylesheet" href="reveal/css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+        <!--[if lt IE 9]>
+        <script src="reveal/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+                <section id="capa">
+                    <h1>Criando aplicações desktop com <br /> PHP-GTK</h1>
+                    <p>
+                        <small>Por <a href="http://vfeitoza.com.br">Victor Feitoza</a></small>
+                    </p>
+                </section>
+                
+                <section id="quem-sou-eu" data-background="images/quem_sou_eu.png" data-background-size="600px">
+                    <h2>&nbsp;</h2>
+                    <h2>&nbsp;</h2>
+                    <h2>&nbsp;</h2>
+                    <ol>
+                        <li>Desenvolvedor web</li>
+                        <li>NOC AS 263025 - ISPTEC</li>
+                        <li>Apaixonado por Linux</li>
+                    </ol>
+                    <pre><code class="xml">
+<&#63;php
+$contacts = array(
+    'name' => 'Victor Feitoza',
+    'mail/talk' => 'vfeitoza@gmail.com',
+    'twitter' => '@vfeitoza',
+    'phone' => '(83) 9144-2654'
+);
+
+var_dump($contacts);
+                    </code></pre>
+                    <p>
+
+                    </p>
+                </section>
+                
+                <section id="topicos">
+                    <h2>Objetivos</h2>
+                    <ol>
+                        <li><strong>Visão geral</strong></li>
+                        <li><strong>Origens</strong></li>
+                        <li><strong>Estrutura</strong></li>
+                        <li><strong>Pequenos exemplos</strong></li>
+                    </ol>
+                    <p>
+                        <img src="images/objetivos.png" />
+                    </p>        
+                </section>
+
+                <section id="php-visao-geral">
+                    <h2>PHP - Visão geral</h2>
+                    <ul>
+                        <li class="fragmented">Uma das linguagens mais utilizadas na web</li>
+                        <li class="fragment">Extremamente fácil de aprender</li>
+                        <li class="fragment">Sintaxe parecida com C, Shell, Perl e Java</li>
+                        <li class="fragment">Integração com os principais SGDB's existentes</li>
+                        <li class="fragment">Grande banco de bibliotecas, classes e funções</li>
+                        <li class="fragment">Rápida, flexível, robusta</li>
+                        <li class="fragment">Maioria de quem trabalha não usa OO</li>
+                    </ul>
+                    <p>
+                        <img src="images/php.png" />
+                    </p>
+                </section>
+
+                <section id="gtk-visao-geral">
+                    <h2>GTK - Visão geral</h2>
+                    <ul>
+                        <li class="fragmented">Multi-plataforma para aplicações gráficas</li>
+                        <li class="fragment">Suporte a diversas linguagens para melhor desenvolvimento</li>
+                        <li class="fragment">Documentação vasta</li>
+                        <li class="fragment">Ferramenta para construção de interfaces</li>
+                        <li class="fragment">Baseado em <strong>widgets</strong> e <strong>sinais</strong></li>
+                    </ul>
+                    <p>
+                        <img src="images/gtk.png" />
+                    </p>
+                </section>
+
+                <section id="adianti-visao-geral">
+                    <h2>Adianti - Visão geral</h2>
+                    <ul>
+                        <li class="fragmented">Primeiro framework com toolkits web e GTK</li>
+                        <li class="fragment">Ambiente de desenvolvimento próprio</li>
+                        <li class="fragment">Focado em aplicações de negócios</li>
+                        <li class="fragment">Uso intensivo de tratamento de exceções</li>
+                        <li class="fragment">Bibliotecas de widgets baseadas em componentes</li>
+                        <li class="fragment">100% orientado a objetos</li>
+                    </ul>
+                    <p>
+                        <img src="images/adianti_sol.png" />
+                    </p>                    
+                </section>
+
+                <section id="origens">
+                    <h2>Breve histórico</h2>
+                    <ul>
+                        <li class="fragmented">PHP-GTK é uma extensão do PHP</li>
+                        <li class="fragment">Criado por Andrei Zmievski</li>
+                        <li class="fragment">Nasceu como um experimento</li>
+                        <li class="fragment">Primeira versão do PHP-GTK em março de 2001</li>
+                        <li class="fragment"><a href="http://www.adianti.com.br/" target="fora">Adianti</a> lançado final de 2012 por Pablo Dall'Oglio</li>
+                    </ul>
+                </section>
+
+                <section id="arquitetura">
+                    <h2>Arquitetura do Framework</h2>
+                    <p>
+                        <img src="images/arquitetura.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section id="fluxo">
+                    <h2>Fluxo de execução</h2>
+                    <p>
+                        <img src="images/fluxo_app.png" class="mais-20" />
+                    </p>
+                </section>
+                
+                <section id="estrutura-libs">
+                    <h2>Estrutura das bibliotecas</h2>
+                    <p>
+                        <img src="images/estrutura_libs.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section id="estrutura-app">
+                    <h2>Estrutura do aplicativo</h2>
+                    <p>
+                        <img src="images/estrutura_app.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section id="exemplos">
+                    <h2>Exemplos</h2>
+                    <h3>Códigos baseados em componentes</h3>
+                    <p>
+                        <img src="images/exemplos/componentes.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Exemplos</h2>
+                    <h3>Diversividade de componentes</h3>
+                    <p>
+                        <img src="images/exemplos/formularios.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Exemplos</h2>
+                    <h3>Pensando em sistemas</h3>
+                    <p>
+                        <img src="images/exemplos/sistemas.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section id="diagrama-classe">
+                    <h2>Conta de energia - Classe</h2>
+                    <p>
+                        <img src="images/exemplos/classe.png" />
+                    </p>
+                </section>
+
+                <section id="diagrama-er">
+                    <h2>Conta de energia - ER</h2>
+                    <p>
+                        <img src="images/exemplos/er.png" />
+                    </p>
+                </section>
+
+                <section id="utilizador-desktop">
+                    <h2>Conta de energia</h2>
+                    <p>
+                        <img src="images/exemplos/utilizador_des.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section id="utilizador-web">
+                    <h2>Conta de energia</h2>
+                    <p>
+                        <img src="images/exemplos/utilizador.png" class="mais-20" />
+                    </p>
+                </section>
+
+                <section id="contas-desktop">
+                    <h2>Conta de energia</h2>
+                    <p>
+                        <img src="images/exemplos/contas_des.png" class="mais-10" />
+                    </p>
+                </section>
+
+                <section id="contas-web">
+                    <h2>Conta de energia</h2>
+                    <p>
+                        <img src="images/exemplos/contas.png" class="mais-10" />
+                    </p>
+                </section>
+                
+                <section id="duvidas" data-background="images/duvidas.png" data-background-size="600px">
+                    <!-- <h1>Dúvidas</h1> -->
+                </section>
+
+            </div>
+            <footer>
+                <div class="copyright">
+                    <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" />
+                </div>
+            </footer>
+        </div>
+
+        <script src="reveal/lib/js/head.min.js"></script>
+        <script src="reveal/js/reveal.min.js"></script>
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                parallaxBackgroundImage: 'images/paisagem.jpg',
+                parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    {src: 'reveal/lib/js/classList.js', condition: function() {
+                            return !document.body.classList;
+                        }},
+                    {src: 'reveal/plugin/markdown/marked.js', condition: function() {
+                            return !!document.querySelector('[data-markdown]');
+                        }},
+                    {src: 'reveal/plugin/markdown/markdown.js', condition: function() {
+                            return !!document.querySelector('[data-markdown]');
+                        }},
+                    {src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() {
+                            hljs.initHighlightingOnLoad();
+                        }},
+                    {src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() {
+                            return !!document.body.classList;
+                        }},
+                    {src: 'reveal/plugin/notes/notes.js', async: true, condition: function() {
+                            return !!document.body.classList;
+                        }}
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
